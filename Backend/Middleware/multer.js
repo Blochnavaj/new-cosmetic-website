@@ -1,4 +1,4 @@
-import multer from "multer";
+ import multer from "multer";
 
 const storage = multer.diskStorage({
     filename: function (req, file, cb) {
@@ -16,5 +16,7 @@ const upload = multer({
     { name: "image3", maxCount: 1 },
     { name: "image4", maxCount: 1 }
 ]);
+
+
 
 export default upload;

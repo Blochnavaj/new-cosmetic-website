@@ -11,6 +11,8 @@ import Login from "./Components/Login";
 import Dashboard from "./Pages/Dashboard";
 import TotalUsersList from "./Pages/TotalUsersList";
 import UserLocation from "./Pages/UserLocation";
+import HomePageBanner from "./Pages/HomePageBanner";
+import  Banner from "./Pages/Banner";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -40,7 +42,9 @@ function App() {
                   <Route path="/orders" element={<Orders token={token} />} />
                   <Route path="/dashboard" element={<Dashboard token={token}/>} />
                   <Route path="/total-users-list" element={<TotalUsersList token={token}/>} />
-                  <Route path="/user-location" element={<UserLocation/>} />
+                  <Route path="/user-location" element={<UserLocation token={token}/>} />
+                  <Route path='/hero-image' element={<HomePageBanner token={token}/>} />
+                  <Route path='/Banner-image' element={<Banner token={token}/>} />
                   <Route path="*" element={<div>Page Not Found</div>} /> {/* ✅ Fallback Route */}
                 </Routes>
               </div>
