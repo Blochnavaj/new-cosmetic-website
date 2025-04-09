@@ -9,6 +9,7 @@ import productRouter from "./Routes/productRoute.js";
 import cartRoutes from "./Routes/cartRoutes.js";  
 import orderRouter from "./Routes/orderRoute.js";
 import HeroImageRoute from "./Routes/heroImageRoute.js";
+import BannerRoute from "./Routes/BannerRoute.js";
  
 dotenv.config();
 
@@ -38,7 +39,8 @@ app.use("/api/user", userRouter);
 app.use("/api/v1", productRouter);
 app.use("/api/cart", cartRoutes); 
 app.use("/api/order" , orderRouter);
-app.use("/api/hero",HeroImageRoute )
+app.use("/api/hero",HeroImageRoute );
+app.use('/api/banner' , BannerRoute);
  
 
  

@@ -5,7 +5,7 @@ import BestSeller from '../Components/BestSeller'
 import OurPolicy from '../Components/OurPolicy'
 import NewsLetterBox from '../Components/NewsLetterBox'
 import AllProductList from '../Components/AllProductList'
-import MostCategory from '../Components/MostCategory'
+// import MostCategory from '../Components/MostCategory'
  
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
        <AllProductList/>
         <LatestCollection/>
        <BestSeller/>
-       <MostCategory/>
+       {/* <MostCategory/> */}
        <OurPolicy/>
        <NewsLetterBox/>
     </div>
