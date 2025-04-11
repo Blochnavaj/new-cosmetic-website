@@ -6,8 +6,10 @@ import { FaChevronDown } from "react-icons/fa";
 
 function SlideBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [newDropdownOpen, setNewDropdownOpen] = useState(false);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown2 = () => setNewDropdownOpen(!newDropdownOpen);
 
   return (
     <div className='w-[18%] min-h-screen border-r-2'>
@@ -63,7 +65,29 @@ function SlideBar() {
           {isDropdownOpen && (
             <div className='ml-8 mt-2 flex flex-col gap-2'>
               <NavLink to='/hero-image' className='text-sm hover:underline'>Hero Image</NavLink>
-              <NavLink to='/Banner-image' className='text-sm hover:underline'>Slider Section</NavLink>
+              {/* <NavLink to='/Banner-image' className='text-sm hover:underline'>Slider Section</NavLink> */}
+              {/* <NavLink to='/homepage-banner' className='text-sm hover:underline'>Homepage Banner</NavLink> */}
+            </div>
+          )}
+        </div>
+
+          {/* Dropdown Section */}
+          <div>
+          <button
+            onClick={toggleDropdown2}
+            className='flex items-center justify-between w-full border px-3 py-3 rounded-md'
+          >
+            <div className='flex items-center gap-3'>
+              <img className='w-5 h-5' src={assets.order_icon} alt="" />
+              <span className='hidden md:block'>Pages Content</span>
+            </div>
+            <FaChevronDown className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          {newDropdownOpen && (
+            <div className='ml-8 mt-2 flex flex-col gap-2'>
+              <NavLink to='/about' className='text-sm hover:underline'>About Page</NavLink>
+              <NavLink to='/Banner-image' className='text-sm hover:underline'>Contact Pages</NavLink>
               {/* <NavLink to='/homepage-banner' className='text-sm hover:underline'>Homepage Banner</NavLink> */}
             </div>
           )}
