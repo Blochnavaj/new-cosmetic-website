@@ -11,6 +11,7 @@ import orderRouter from "./Routes/orderRoute.js";
 import HeroImageRoute from "./Routes/heroImageRoute.js";
 import BannerRoute from "./Routes/BannerRoute.js";
 import router from "./Routes/AboutRoute.js";
+import contactRouter from "./Routes/contactRoute.js";
  
 dotenv.config();
 
@@ -43,7 +44,7 @@ app.use("/api/order" , orderRouter);
 app.use("/api/hero",HeroImageRoute );
 app.use('/api/banner' , BannerRoute);
 app.use('/api/about', router)
- 
+app.use('/api/contact', contactRouter);
 
  
 app.listen(port, () => console.log(`Server running on port ${port}`));
