@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaClock } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { ShopContext } from "../Context/ShopContext";
+import axios from 'axios';
 
 function Contact() {
+    const { setToken, token, backendUrl } = useContext(ShopContext);
+    const [contact, setContact] = useState(null);
+
+    useEffect(() => {
+      const fetchContact = async () => {
+        const storedToken = localStorage.getItem("token");
+
+        try {
+          const response = await axios.get(`${backendUrl}/api/contact/get-contact`);
+           
+          console.log(response);
+          setContact(response.data);
+        } catch (error) {
+          console.error("Error fetching contact info:", error);
+        }
+      };
+  
+      fetchContact();
+    },);
   return (
     <section className="min-h-screen mt-24 flex items-center justify-center p-6 bg-gradient-to-b from-rose-50/50 to-white/50 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -27,9 +48,9 @@ function Contact() {
                 Connect With Us
               </span>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              We’d love to hear from you! Whether you have questions about our products or need assistance, our team is here to help.
-            </p>
+                 <p className="text-gray-600 text-lg leading-relaxed">
+                 {contact?.description || "We are here to assist you with all your beauty needs. Whether you have questions about our products, need assistance with an order, or just want to say hello, we would love to hear from you!"}
+             </p>
           </motion.div>
 
           <motion.ul 
@@ -41,24 +62,25 @@ function Contact() {
             <ContactItem 
               icon={<FaMapMarkerAlt className="text-rose-400" />}
               title="Visit Us"
-              content="123 Beauty Lane, Fashion City, 45678"
+              content={contact?.address || "123 Beauty Lane, Glamour City"}
+              link="https://www.google.com/maps?q=123+Beauty+Lane,+Glamour+City"
             />
             <ContactItem 
               icon={<FaEnvelope className="text-rose-400" />}
               title="Email"
-              content="support@cosmeticbrand.com"
+              content={contact?.email}
               link="mailto:support@cosmeticbrand.com"
             />
             <ContactItem 
               icon={<FaPhoneAlt className="text-rose-400" />}
               title="Call Us"
-              content="+1 234 567 890"
+              content={contact?.contact || "+1 (234) 567-890"}
               link="tel:+1234567890"
             />
             <ContactItem 
               icon={<FaClock className="text-rose-400" />}
               title="Hours"
-              content="Mon-Fri, 9 AM - 6 PM"
+              content={contact?.hours || "Mon-Fri: 9 AM - 6 PM"}
             />
           </motion.ul>
 
@@ -99,7 +121,7 @@ function Contact() {
           transition={{ duration: 0.5 }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80"
+            src={contact?.image || "https://via.placeholder.com/600x400"}
             alt="Beauty Consultation"
             className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
           />

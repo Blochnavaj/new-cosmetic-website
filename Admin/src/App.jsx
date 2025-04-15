@@ -14,6 +14,7 @@ import UserLocation from "./Pages/UserLocation";
 import HomePageBanner from "./Pages/HomePageBanner";
 import  Banner from "./Pages/Banner";
 import About from "./Pages/About";
+import ContactPages from "./Pages/ContactPages";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -45,7 +46,7 @@ function App() {
                   <Route path="/total-users-list" element={<TotalUsersList token={token}/>} />
                   <Route path="/user-location" element={<UserLocation token={token}/>} />
                   <Route path='/hero-image' element={<HomePageBanner token={token}/>} />
-                  <Route path='/banner-image' element={<Banner token={token}/>} />
+                  <Route path='/contact-pages' element={<ContactPages token={token}/>} />
                   <Route path='/about' element={<About token={token}/>} />
                   <Route path="*" element={<div>Page Not Found</div>} /> {/* ✅ Fallback Route */}
                 </Routes>

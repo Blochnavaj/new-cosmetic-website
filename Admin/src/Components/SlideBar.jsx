@@ -87,7 +87,7 @@ function SlideBar() {
           {newDropdownOpen && (
             <div className='ml-8 mt-2 flex flex-col gap-2'>
               <NavLink to='/about' className='text-sm hover:underline'>About Page</NavLink>
-              <NavLink to='/Banner-image' className='text-sm hover:underline'>Contact Pages</NavLink>
+              <NavLink to='/contact-pages' className='text-sm hover:underline'>Contact Pages</NavLink>
               {/* <NavLink to='/homepage-banner' className='text-sm hover:underline'>Homepage Banner</NavLink> */}
             </div>
           )}
