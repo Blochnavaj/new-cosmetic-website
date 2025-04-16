@@ -7,8 +7,8 @@ function AllProductList() {
 
   const handleProductClick = () => {
     navigate("/collection");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
   const products = [
     { name: "Moisturizers", img: assets.cat1 },

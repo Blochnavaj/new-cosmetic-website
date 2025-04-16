@@ -1,8 +1,3 @@
- 
- 
- 
- 
- 
 import cat1 from './cat1.jpg'
 import cat2 from './cat2.jpg'
 import cat3 from './cat3.jpg'

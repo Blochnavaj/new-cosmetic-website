@@ -12,6 +12,7 @@ import HeroImageRoute from "./Routes/heroImageRoute.js";
 import BannerRoute from "./Routes/BannerRoute.js";
 import router from "./Routes/AboutRoute.js";
 import contactRouter from "./Routes/contactRoute.js";
+import logoRoute from "./Routes/logoRoute.js";
  
 dotenv.config();
 
@@ -45,6 +46,7 @@ app.use("/api/hero",HeroImageRoute );
 app.use('/api/banner' , BannerRoute);
 app.use('/api/about', router)
 app.use('/api/contact', contactRouter);
+app.use('/api/logo',logoRoute);
 
  
 app.listen(port, () => console.log(`Server running on port ${port}`));
